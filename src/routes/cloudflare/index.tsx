@@ -30,7 +30,7 @@ export const useGetD1 = routeLoader$(async ({ platform }) => {
   const d1Value = await getD1Database(platform, table);
   if (d1Value) {
     console.log('Retrieved from D1 (log on server)');
-    return JSON.parse(d1Value);
+    return d1Value;
   }
 
   return null;

@@ -20,7 +20,7 @@ export const putCacheKV = async (platform: QwikCityPlatform, key: string, value:
 
 export const getD1Database = async (platform: QwikCityPlatform, tableName: string): Promise<any> => {
   if (platform.env) {
-    const D1 =  platform.env['D1_VARIABLE'] as D1Database;
+    const D1 =  platform.env[import.meta.env.VITE_D1_VARIABLE] as D1Database;
     const ps = D1.prepare(`SELECT * from ${tableName}`);
     const data = await ps.all();
 
@@ -30,7 +30,7 @@ export const getD1Database = async (platform: QwikCityPlatform, tableName: strin
 
 export const putD1Database = async (platform: QwikCityPlatform, tableName: string): Promise<any> => {
   if (platform.env) {
-    const D1 =  platform.env['D1_VARIABLE'] as D1Database;
+    const D1 =  platform.env[import.meta.env.VITE_D1_VARIABLE] as D1Database;
     const ps = D1.prepare(`INSERT INTO ${tableName} (id, name) VALUES (2, Name2)`);
     const data = await ps.all();
 
