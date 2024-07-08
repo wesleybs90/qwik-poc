@@ -1,3 +1,9 @@
+
+## Cloudflare Pages
+
+Link:
+[https://qwik-poc-252.pages.dev/](https://qwik-poc-252.pages.dev/)
+
 # Qwik City App ⚡️
 
 - [Qwik Docs](https://qwik.dev/)
