@@ -55,6 +55,8 @@ export default component$(() => {
       <p>Cloudflare D1 Test</p>
       <p>Value:</p>
       <pre>{JSON.stringify(d1Resource.value)}</pre>
+      <p>Results:</p>
+      <pre>{JSON.stringify(d1Resource.value?.results)}</pre>
     </div>
 
     

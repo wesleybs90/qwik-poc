@@ -1,4 +1,4 @@
-import type { KVNamespace, D1Database } from '@cloudflare/workers-types';
+import type { KVNamespace, D1Database, D1Result } from '@cloudflare/workers-types';
 
 export const getCacheKV = async (platform: QwikCityPlatform, key: string): Promise<string | null> => {
   if (platform.env) {
@@ -18,7 +18,7 @@ export const putCacheKV = async (platform: QwikCityPlatform, key: string, value:
   }
 }
 
-export const getD1Database = async (platform: QwikCityPlatform, tableName: string): Promise<any> => {
+export const getD1Database = async (platform: QwikCityPlatform, tableName: string): Promise<D1Result | null> => {
   if (platform.env) {
     const D1 =  platform.env[import.meta.env.VITE_D1_VARIABLE] as D1Database;
     const ps = D1.prepare(`SELECT * from ${tableName}`);
@@ -26,6 +26,8 @@ export const getD1Database = async (platform: QwikCityPlatform, tableName: strin
 
     return data;
   }
+
+  return null;
 }
 
 export const putD1Database = async (platform: QwikCityPlatform, tableName: string): Promise<any> => {
