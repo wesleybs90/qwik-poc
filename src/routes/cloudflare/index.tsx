@@ -1,0 +1,45 @@
+import { component$ } from "@builder.io/qwik";
+import { routeLoader$ } from "@builder.io/qwik-city";
+import { getCacheKV, putCacheKV } from "~/services/utils";
+
+export const useGetKV = routeLoader$(async ({ platform }) => {
+
+  const key = 'kv_test_key';
+  const value = {
+    message: 'Hello from Cloudflare KV',
+  };
+
+  const cacheTTL = 1800;
+
+  //Check if resource is cached
+  const cachedValue = await getCacheKV(platform, key);
+  if (cachedValue) {
+    console.log('Retrieved from cache (log on server)');
+    return JSON.parse(cachedValue);
+  }
+
+  //Cache the resource
+  await putCacheKV(platform, key, JSON.stringify(value), cacheTTL);
+
+  return null;
+});
+
+export default component$(() => {
+
+  const resource = useGetKV();
+  console.log('Retrieved from cache (log on client)', resource.value);
+
+  return (
+    <div>
+      <p>Cloudflare KV Test</p>
+      <p>Value:</p>
+      {resource.value && (
+        <div>
+          <h2>Resource</h2>
+          <pre>{JSON.stringify(resource.value, null, 2)}</pre>
+        </div>
+      )}
+    </div>
+  );
+
+});
