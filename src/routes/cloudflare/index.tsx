@@ -33,12 +33,7 @@ export default component$(() => {
     <div>
       <p>Cloudflare KV Test</p>
       <p>Value:</p>
-      {resource.value && (
-        <div>
-          <h2>Resource</h2>
-          <pre>{JSON.stringify(resource.value, null, 2)}</pre>
-        </div>
-      )}
+      <pre>{JSON.stringify(resource.value)}</pre>
     </div>
   );
 
