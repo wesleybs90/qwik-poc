@@ -1,8 +1,15 @@
 
+## Qwik POC for Cloudflare Pages
+
+This is a POC for Qwik with Cloudflare Pages. The project is a simple Qwik project with a few routes and components,
+with implementation for using on production Cloudflare KV, D1 and R2.
+
 ## Cloudflare Pages
 
 Link:
 [https://qwik-poc-252.pages.dev/](https://qwik-poc-252.pages.dev/)
+
+Route: /cloudfare
 
 # Qwik City App ⚡️
 
