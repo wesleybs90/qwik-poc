@@ -45,14 +45,12 @@ export const insertD1Database = async (platform: QwikCityPlatform, tableName: st
 }
 
 // Cloudflare R2 - record media into R2
-export const recordMediaR2 = async (platform: QwikCityPlatform, media: ArrayBuffer): Promise<R2Object | null> => {
+export const recordMediaR2 = async (platform: QwikCityPlatform, pathAndFileName: string, media: ArrayBuffer): Promise<R2Object | null> => {
   if (platform.env) {
     const R2 =  platform.env[import.meta.env.VITE_R2_VARIABLE] as R2Bucket;
-    const mediaValue = await R2.put('PATH_TO_MEDIA_FILE', media);
+    const mediaValue = await R2.put(pathAndFileName, media);
     return mediaValue;
   }
 
   return null;
 }
-
-// Cloudflare R2 - get media from R2

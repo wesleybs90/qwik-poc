@@ -24,7 +24,7 @@ export const useGetKV = routeLoader$(async ({ platform }) => {
 });
 
 export const useGetD1 = routeLoader$(async ({ platform }) => {
-  const table = 'table_test';
+  const table = 'Customers';
 
   //Get the resource from D1
   const d1Value = await getD1Database(platform, table);
@@ -42,7 +42,7 @@ export default component$(() => {
   console.log('Retrieved from cache (log on client)', resource.value);
 
   const d1Resource = useGetD1();
-  console.log('Retrieved from D1 (log on client)', d1Resource.value);
+  console.log('Retrieved from D1 (log on server or client)', d1Resource.value);
 
   return (
     <div>
