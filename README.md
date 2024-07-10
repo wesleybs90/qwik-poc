@@ -11,6 +11,55 @@ Link:
 
 Route: /cloudfare
 
+## Local Development D1
+
+Documentation: [https://developers.cloudflare.com/d1/get-started/](https://developers.cloudflare.com/d1/get-started/)
+
+To run the project locally with D1, you need to have wrangler installed and configured with your Cloudflare account.
+
+```shell
+npx wrangler login
+```
+
+After that, you can run the following command to start the local server with D1:
+
+```shell
+npx wrangler d1 create prod-d1-tutorial
+npx wrangler d1 list
+```
+
+Bind your Worker to your D1 database
+Create the schema for the database and run the schema migration
+
+```shell
+npx wrangler d1 execute prod-d1-tutorial --local --file=./schema.sql
+```
+
+Test the local database
+
+```shell
+npx wrangler d1 execute prod-d1-tutorial --local --command="SELECT * FROM Customers"
+```
+
+Build the project and run the local server with wrangler
+
+```shell
+npx wrangler pages dev
+```
+
+Deploy the database
+
+```shell
+npx wrangler d1 execute prod-d1-tutorial --remote --file=./schema.sql
+```
+
+And test the database
+
+```shell
+npx wrangler d1 execute prod-d1-tutorial --remote --command="SELECT * FROM Customers"
+```
+
+
 # Qwik City App ⚡️
 
 - [Qwik Docs](https://qwik.dev/)
