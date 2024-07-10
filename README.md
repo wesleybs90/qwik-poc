@@ -9,7 +9,7 @@ with implementation for using on production Cloudflare KV, D1 and R2. And auto d
 Link:
 [https://qwik-poc-252.pages.dev/](https://qwik-poc-252.pages.dev/)
 
-Route: /cloudfare
+Route: /cloudflare
 
 ## Local Development D1
 
