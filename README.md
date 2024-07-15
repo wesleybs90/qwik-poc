@@ -21,7 +21,6 @@ binding = "BINDING_NAME"
 id = "KV_NAMESPACE_ID"
 ```
 
-
 ## Local Development D1
 
 Documentation: [https://developers.cloudflare.com/d1/get-started/](https://developers.cloudflare.com/d1/get-started/)
