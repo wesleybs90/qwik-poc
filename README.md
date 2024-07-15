@@ -11,6 +11,17 @@ Link:
 
 Route: /cloudflare
 
+## Local Development KV
+
+Create a KV namespace on Cloudflare and add the namespace to the wrangler.toml file
+  
+```shell
+[[kv_namespaces]]
+binding = "BINDING_NAME"
+id = "KV_NAMESPACE_ID"
+```
+
+
 ## Local Development D1
 
 Documentation: [https://developers.cloudflare.com/d1/get-started/](https://developers.cloudflare.com/d1/get-started/)
@@ -29,6 +40,14 @@ npx wrangler d1 list
 ```
 
 Bind your Worker to your D1 database
+
+```shell
+[[d1_databases]]
+binding = "BINDING_NAME" # i.e. available in your Worker on env.DB
+database_name = "DATABASE_NAME"
+database_id = "DATABASE_ID"
+```
+
 Create the schema for the database and run the schema migration
 
 ```shell
@@ -44,7 +63,7 @@ npx wrangler d1 execute prod-d1-tutorial --local --command="SELECT * FROM Custom
 Build the project and run the local server with wrangler
 
 ```shell
-npx wrangler pages dev
+npm run serve
 ```
 
 Deploy the database
