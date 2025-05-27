@@ -11,6 +11,29 @@ Link:
 
 Route: /cloudflare
 
+### Cloudflare Preparation
+
+Remember to create variables on .env file for the Cloudflare KV, R2 and D1.
+
+Remember to create bindings for the Cloudflare KV, R2 and D1 in the wrangler.toml file.
+
+Remember to create variables and bindings in Worker settings on Cloudflare Pages.
+
+
+### Development Cloudflare KV, R2 and D1
+
+To run the project locally with Cloudflare KV, R2 and D1, you need to have wrangler installed and configured with your Cloudflare account.
+
+```shell
+npx wrangler login
+```
+
+After that, you can run the following command to start the local server with Cloudflare KV, R2 and D1:
+
+```shell
+npx run start:cloudflare
+```
+
 ## Local Development KV
 
 Create a KV namespace on Cloudflare and add the namespace to the wrangler.toml file
@@ -20,6 +43,19 @@ Create a KV namespace on Cloudflare and add the namespace to the wrangler.toml f
 binding = "BINDING_NAME"
 id = "KV_NAMESPACE_ID"
 ```
+
+## Local Development R2
+
+Create a R2 namespace on Cloudflare and add the namespace to the wrangler.toml file
+  
+```shell
+[[r2_buckets]]
+binding = "BINDING_NAME"
+bucket_name = "BUCKET_NAME"
+```
+
+Local development with R2, didn't figure out how to run it locally.
+
 
 ## Local Development D1
 
