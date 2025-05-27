@@ -6,3 +6,7 @@ database_id = "e76b4605-4062-4036-aa6b-178c1f4cb561"
 [[kv_namespaces]]
 binding = "KV_VARIABLE"
 id = "869859e6f5c54db3a4c13aa8bba613ec"
+
+[[r2_buckets]]
+binding = "R2_VARIABLE"
+bucket_name = "prod-r2-test"

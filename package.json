@@ -26,6 +26,7 @@
     "preview": "qwik build preview && vite preview",
     "serve": "wrangler pages dev ./dist --compatibility-flags=nodejs_als",
     "start": "vite --mode ssr",
+    "start:cloudflare": "npm run build && npm run serve",
     "qwik": "qwik"
   },
   "devDependencies": {
